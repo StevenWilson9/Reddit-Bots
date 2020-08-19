@@ -3,11 +3,6 @@ reddit = praw.Reddit("RSB1", user_agent="bot1 user agent")
 subreddit = reddit.subreddit('learnpython')
 # subreddit = reddit.subreddit('pythonforengineers')
 
-# TODO
-#   save to github
-#   add new posts, not just comments to the search parameters
-#   Is there a way to have it hosted/ leave it running?
-
 
 def convert_string(string):
     format_items = re.compile(r"\.format\((.*?)\)")
@@ -95,13 +90,13 @@ if go is True:
             nstring = convert_string(ostring)
 
             footer = """***
-[^Direct ^message](https://www.reddit.com/message/compose/?to=FString-Bot)\
+[^Direct ^message](https://www.reddit.com/message/compose/?to=FString-Bot)
 ^( me if I've replied inappropriately.)"""
 
-            comment_body = f"""You seem to have used the .format() format. \
-However as of python 3.6 released in August 2015, current best practice is to use \
-[f-Strings](https://www.python.org/dev/peps/pep-0498/#abstract) \
-which provide a concise, readable way to include the value of Python expressions inside strings. \
+            comment_body = f"""You seem to have used the .format() format. 
+However as of Python 3.6 released in August 2015, current best practice is to use 
+[f-Strings](https://www.python.org/dev/peps/pep-0498/#abstract) 
+which provide a concise, readable way to include the value of Python expressions inside strings. 
 Original code: \n \n
 {ostring} \n\n  f-string format:
 \n\n{nstring} \n\n{footer} """

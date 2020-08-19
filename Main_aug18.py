@@ -76,8 +76,6 @@ if go is True:
     ro = re.compile(r"( {4}.*(\.format)\(.*)")
 
 
-    # for submission in subreddit.stream.submissions():
-
 # findcomments
     comments = subreddit.stream.comments()
     comments_searched = 0
@@ -95,13 +93,13 @@ if go is True:
             nstring = convert_string(ostring)
 
             footer = """***
-[^Direct ^message](https://www.reddit.com/message/compose/?to=FString-Bot)\
+[^Direct ^message](https://www.reddit.com/message/compose/?to=FString-Bot)
 ^( me if I've replied inappropriately.)"""
 
-            comment_body = f"""You seem to have used the .format() format. \
-However as of Python 3.6 released in August 2015, current best practice is to use \
-[f-Strings](https://www.python.org/dev/peps/pep-0498/#abstract) \
-which provide a concise, readable way to include the value of Python expressions inside strings. \
+            comment_body = f"""You seem to have used the .format() format. 
+However as of Python 3.6 released in August 2015, current best practice is to use 
+[f-Strings](https://www.python.org/dev/peps/pep-0498/#abstract) 
+which provide a concise, readable way to include the value of Python expressions inside strings. 
 Original code: \n \n
 {ostring} \n\n  f-string format:
 \n\n{nstring} \n\n{footer} """
