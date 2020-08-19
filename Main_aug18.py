@@ -4,13 +4,23 @@ subreddit = reddit.subreddit('learnpython')
 # subreddit = reddit.subreddit('pythonforengineers')
 
 # TODO
-#   save to github
 #   Is there a way to have it hosted/ leave it running?
 
 
 def convert_string(string):
-    format_items = re.compile(r"\.format\((.*)\)")
+    format_items = re.compile(r"\.format\((.*?)\)")
     vlst = format_items.search(string).group(1).replace(' ', '').split(",")
+
+    cut_end = re.compile(r"(.*)\.format\(")
+    string = cut_end.search(string).group(1)
+    if "'" in string and '"' in string:
+        if string.index("'") < string.index('"'):
+            string = string.replace('"', 'f"', 1)
+        else:
+            string = string.replace("'", "f'", 1)
+    else:
+        string = string.replace('"', 'f"', 1).replace("'", "f'", 1)
+
     if "=" in vlst[0]:
         return convert_string_dic(vlst, string)
     else:
@@ -18,9 +28,6 @@ def convert_string(string):
 
 
 def convert_string_nodic(vlst, string):
-    cut_end = re.compile(r"(.*)\.format\(")
-    string = cut_end.search(string).group(1)
-    string = string.replace('return "', 'return f"').replace("return '", "return f'")
     nlst = []
     for i in vlst:
         nlst.append('{' + i + '}')
@@ -36,11 +43,6 @@ def convert_string_dic(vlst, string):
         aa, bb = i.split('=')
         a.append(aa)
         b.append(bb)
-
-    cut_end = re.compile(r"(.*)\.format\(")
-    string = cut_end.search(string).group(1)
-    string = string.replace('return "', 'return f"').replace("return '", "return f'")
-
     for i in range(len(a)):
         string = string.replace(a[i], b[i])
     return string
