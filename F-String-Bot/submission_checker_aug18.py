@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import praw, re, os
 reddit = praw.Reddit("RSB1", user_agent="bot1 user agent")
 subreddit = reddit.subreddit('learnpython')
