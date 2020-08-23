@@ -5,9 +5,6 @@ reddit = praw.Reddit("RSB1", user_agent="bot1 user agent")
 subreddit = reddit.subreddit('learnpython')
 # subreddit = reddit.subreddit('pythonforengineers')
 
-# TODO
-#   Is there a way to have it hosted/ leave it running?
-
 
 def convert_string(string):
     # check if statement has parenthesis opener at the start
