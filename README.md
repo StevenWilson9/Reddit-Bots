@@ -1,6 +1,8 @@
 # Steven's Reddit Bots
 This is a repository for bots which read comments and posts 
-on reddit and give automated replies. 
+on Reddit, then gives automated replies. 
+If you have a subreddit which could benefit from a bot, 
+[send me a dm on Reddit](https://www.reddit.com/user/M1sterNinja/)
 
 ## The Bots
 **[F-String Bot](https://www.reddit.com/user/FString-Bot)**, scans 
